@@ -1,46 +1,57 @@
 [
   {
-    "name": "array",
-    "label": "数组"
+    "name": "1.array",
+    "label": "1.数组",
+    "type": "dir"
   },
   {
-    "label": "链表",
-    "name": "link"
+    "label": "2.链表",
+    "name": "2.link",
+    "type": "dir"
   },
   {
-    "label": "哈希表",
-    "name": "hash"
+    "label": "3.哈希表",
+    "name": "3.hash",
+    "type": "dir"
   },
   {
-    "name": "string",
-    "label": "字符串"
+    "name": "4.string",
+    "label": "4.字符串",
+    "type": "dir"
   },
   {
-    "label": "双指针",
-    "name": "double"
+    "label": "5.双指针",
+    "name": "5.double",
+    "type": "dir"
   },
   {
-    "name": "stack-queue",
-    "label": "栈与队列"
+    "name": "6.stack-queue",
+    "label": "6.栈与队列",
+    "type": "dir"
   },
   {
-    "name": "tree",
-    "label": "二叉树"
+    "name": "7.tree",
+    "label": "7.二叉树",
+    "type": "dir"
   },
   {
-    "name": "sort",
-    "label": "回溯算法"
+    "name": "8.sort",
+    "label": "8.回溯算法",
+    "type": "dir"
   },
   {
-    "name": "greedy",
-    "label": "贪心算法"
+    "name": "9.greedy",
+    "label": "9.贪心算法",
+    "type": "dir"
   },
   {
-    "name": "dp",
-    "label": "动态规划"
+    "name": "10.dp",
+    "label": "10.动态规划",
+    "type": "dir"
   },
   {
-    "name": "monotonic-stack",
-    "label": "单调栈"
+    "name": "11.monotonic-stack",
+    "label": "11.单调栈",
+    "type": "dir"
   }
 ]

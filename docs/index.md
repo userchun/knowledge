@@ -8,10 +8,10 @@ hero:
   actions:
     - theme: brand
       text: 快速开始
-      link: /guide/1.八股文/1.html
+      link: /guide/1.八股文/1.html/标签
     - theme: alt
       text: GitHub
-      link: https://github.com/web-infra-dev/rspress
+      link: https://github.com/userchun/interview-experience
   image:
     src: /rspress-icon.png
     alt: Logo

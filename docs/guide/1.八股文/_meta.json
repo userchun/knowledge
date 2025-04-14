@@ -1,38 +1,47 @@
 [
   {
     "name": "1.html",
-    "label": "Html"
+    "label": "Html",
+    "type": "dir"
   },
   {
     "label": "Css",
-    "name": "2.css"
+    "name": "2.css",
+    "type": "dir"
   },
   {
     "label": "Javascript",
-    "name": "3.javascript"
+    "name": "3.javascript",
+    "type": "dir"
   },
   {
     "name": "4.es6",
-    "label": "Es6"
+    "label": "Es6",
+    "type": "dir"
   },
   {
     "label": "Typescript",
-    "name": "5.typescript"
+    "name": "5.typescript",
+    "type": "dir"
   },
   {
     "name": "6.vue",
-    "label": "Vue"
+    "label": "Vue",
+    "type": "dir"
   },
   {
     "name": "7.react",
-    "label": "React"
+    "label": "React",
+    "type": "dir"
   },
   {
     "name": "8.node",
-    "label": "Node"
+    "label": "Node",
+    "type": "dir"
   },
   {
     "name": "9.build",
-    "label": "前端工程化"
+    "label": "前端工程化",
+    "type": "dir"
   }
 ]
