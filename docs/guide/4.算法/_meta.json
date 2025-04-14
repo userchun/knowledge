@@ -1,0 +1,46 @@
+[
+  {
+    "name": "array",
+    "label": "数组"
+  },
+  {
+    "label": "链表",
+    "name": "link"
+  },
+  {
+    "label": "哈希表",
+    "name": "hash"
+  },
+  {
+    "name": "string",
+    "label": "字符串"
+  },
+  {
+    "label": "双指针",
+    "name": "double"
+  },
+  {
+    "name": "stack-queue",
+    "label": "栈与队列"
+  },
+  {
+    "name": "tree",
+    "label": "二叉树"
+  },
+  {
+    "name": "sort",
+    "label": "回溯算法"
+  },
+  {
+    "name": "greedy",
+    "label": "贪心算法"
+  },
+  {
+    "name": "dp",
+    "label": "动态规划"
+  },
+  {
+    "name": "monotonic-stack",
+    "label": "单调栈"
+  }
+]
