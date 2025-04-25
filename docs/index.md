@@ -8,7 +8,7 @@ hero:
   actions:
     - theme: brand
       text: 快速开始
-      link: /guide/1.八股文/1.html/标签
+      link: /guide/1.八股文/1.html/HTML的src和href属性有什么区别
     - theme: alt
       text: GitHub
       link: https://github.com/userchun/interview-experience
