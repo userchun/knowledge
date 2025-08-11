@@ -2,9 +2,9 @@
 pageType: home
 
 hero:
-  name: 面经
-  text: 前端面试题!
-  tagline: 前端面试总结
+  name: 知识库
+  text: 前端知识库!
+  tagline: 前端知识总结
   actions:
     - theme: brand
       text: 快速开始

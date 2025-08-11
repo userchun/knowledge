@@ -3,7 +3,7 @@ import { defineConfig } from 'rspress/config';
 
 export default defineConfig({
   root: path.join(__dirname, 'docs'),
-  title: '前端面经',
+  title: '前端知识库',
   icon: '/rspress-icon.png',
   logo: {
     light: '/rspress-light-logo.png',
