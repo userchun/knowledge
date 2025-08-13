@@ -8,10 +8,7 @@
     "dev": "rspress dev",
     "format": "prettier --write .",
     "lint": "eslint .",
-    "preview": "rspress preview",
-    "docs:dev": "vitepress dev",
-    "docs:build": "vitepress build",
-    "docs:preview": "vitepress preview"
+    "preview": "rspress preview"
   },
   "dependencies": {
     "rspress": "^1.45.1"

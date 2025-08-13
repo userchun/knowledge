@@ -3,5 +3,9 @@
   "2.JavaScript有哪些数据类型",
   "3.如何判断JavaScript变量是数组",
   "4.null和undefined的区别",
-  "5.typeof 和 instanceof的区别"
+  "5.typeof 和 instanceof的区别",
+  "6.为什JS中的0.1+0.2不等于0.3",
+  "7.如何安全的获取undefined的值",
+  "8.type NaN的结果是什么",
+  "9.Object.is()与==、===的区别是什么"
 ]

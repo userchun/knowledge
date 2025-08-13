@@ -1,0 +1,47 @@
+# 6.为什JS中的0.1+0.2不等于0.3
+
+在JS中，数字是以二进制浮点数表示的，而不是十进制浮点数。导致有些十进制小数在二进制浮点数中无法精确表示。 例如，0.1 和 0.2
+
+```jsx
+0.1 的二进制表示约为：0.0001100110011001100110011001100110011001100110011001101...
+0.2 的二进制表示约为：0.001100110011001100110011001100110011001100110011001101...
+```
+
+将这些二进制数相加时,由于精度限制,导致结果不是精确的0.3,而是0.30000000000000004。
+
+## 如何让其相等
+
+1. 使用误差范围
+
+设置一个误差范围，通常称为“机器精度”。在JS中这个值是Number.EPSILON，它表示可以接受的最小误差范围，示例如下：
+
+```jsx
+function numbersAreEqual(num1, num2) {
+  return Math.abs(num1 - num2) < Number.EPSILON;
+}
+console.log(numbersAreEqual(0.1 + 0.2, 0.3)); // 输出: true
+```
+
+2. 使用toFixed方法
+
+toFixed方法可以将数字转换为指定小数位数的字符串，然后比较字符串是否相等，示例如下：
+
+```jsx
+function numbersAreEqual(num1, num2) {
+  return num1.toFixed(10) === num2.toFixed(10);
+}
+console.log(numbersAreEqual(0.1 + 0.2, 0.3)); // 输出: true
+```
+
+注意：toFixed方法会将数字转换为字符串，因此在进行比较时需要小心。
+
+3. 使用Number.toPrecision方法()
+
+Number.toPrecision方法可以将数字转换为指定精度的字符串，示例如下：
+
+```jsx
+function numbersAreEqual(num1, num2) {
+  return num1.toPrecision(10) === num2.toPrecision(10);
+}
+console.log(numbersAreEqual(0.1 + 0.2, 0.3)); // 输出: true
+```
