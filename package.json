@@ -11,6 +11,10 @@
     "preview": "rspress preview"
   },
   "dependencies": {
+    "@types/react": "^19.1.10",
+    "highlight.js": "^11.11.1",
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1",
     "rspress": "^1.45.1"
   },
   "devDependencies": {
