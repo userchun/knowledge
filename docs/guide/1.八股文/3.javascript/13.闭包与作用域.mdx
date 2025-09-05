@@ -1,0 +1,142 @@
+# 14.闭包与作用域
+
+### 一. **闭包**：
+
+闭包是指有权访问另一个函数作用域中的变量的函数。闭包允许函数访问其外部函数的作用域，即使外部函数已经返回。
+
+```js
+function outerFunction() {
+  let outerVariable = 'I am from outer function'; // 外部变量
+  function innerFunction() {
+    console.log(outerVariable); // 访问外部变量
+  }
+  return innerFunction; // 返回内部函数
+}
+const closure = outerFunction(); // outerFunction 执行后返回 innerFunction
+closure(); // 调用闭包，输出: I am from outer function
+```
+
+### 二. **作用域**：
+
+作用域是变量和函数的可访问范围。JavaScript 有两种主要的作用域：全局作用域和局部作用域。
+
+1. **全局作用域**：在代码的最外层定义的变量和函数在整个程序中都是可访问的。全局作用域中的变量和函数可以在任何地方被访问和修改。
+
+```js
+let globalVariable = 'I am a global variable';
+
+function globalFunction() {
+  console.log(globalVariable); // 可以访问全局变量
+}
+
+globalFunction(); // 输出: I am a global variable
+```
+
+2. **局部作用域**：在函数内部定义的变量和函数只能在函数内部访问。局部作用域中的变量和函数在函数外部是不可访问的。
+
+```js
+function localFunction() {
+  let localVariable = 'I am a local variable'; // 局部变量
+  console.log(localVariable); // 可以访问局部变量
+}
+localFunction(); // 输出: I am a local variable
+console.log(localVariable); // 报错: localVariable is not defined
+```
+
+### 三. **块级作用域**：
+
+ES6 引入了 `let` 和 `const`，它们允许创建块级作用域。块级作用域是由一对花括号 `{}` 定义的代码块。
+
+```js
+{
+  let blockVariable = 'I am a block variable'; // 块级变量
+  console.log(blockVariable); // 可以访问块级变量
+}
+console.log(blockVariable); // 报错: blockVariable is not defined
+```
+
+### 四. **作用域链**：
+
+作用域链是 JavaScript 中用于解析标识符的机制。当访问一个变量时，JavaScript 引擎会从当前作用域开始，逐级向上查找，直到找到该变量或到达全局作用域。
+
+```js
+function outerFunction() {
+  let outerVariable = 'I am from outer function'; // 外部变量
+  function innerFunction() {
+    let innerVariable = 'I am from inner function'; // 内部变量
+    console.log(innerVariable); // 访问内部变量
+    console.log(outerVariable); // 访问外部变量
+  }
+  innerFunction(); // 调用内部函数
+}
+outerFunction(); // 输出: I am from inner function 和 I am from outer function
+```
+
+### 五. **闭包的应用**：
+
+1. **封装私有变量**：闭包可以用来封装私有变量，使其只能在函数内部访问。
+
+```js
+function createCounter() {
+  let count = 0; // 私有变量
+  return {
+    increment: function () {
+      count++;
+      return count;
+    },
+    decrement: function () {
+      count--;
+      return count;
+    },
+    getCount: function () {
+      return count;
+    },
+  };
+}
+const counter = createCounter();
+console.log(counter.increment()); // 输出: 1
+console.log(counter.increment()); // 输出: 2
+console.log(counter.decrement()); // 输出: 1
+console.log(counter.getCount()); // 输出: 1
+```
+
+2. **函数工厂**：闭包可以用来创建函数工厂，根据不同的参数生成不同的函数。
+
+```js
+function makeAdder(x) {
+  return function (y) {
+    return x + y; // 访问外部函数的参数 x
+  };
+}
+const add5 = makeAdder(5);
+const add10 = makeAdder(10);
+console.log(add5(2)); // 输出: 7
+console.log(add10(2)); // 输出: 12
+```
+
+### 六. **注意事项**：
+
+1. **内存泄漏**：闭包会保持对外部变量的引用，可能导致内存泄漏。如果闭包不再需要，应该确保没有对外部变量的引用。
+2. **调试困难**：闭包可能使代码调试变得困难，因为变量的作用域不再是显而易见的。
+3. **性能问题**：闭包可能会导致性能问题，因为闭包会占用更多的内存和计算资源。
+4. **循环中的闭包**：在循环中创建闭包时，可能会遇到意外的行为，因为闭包会捕获变量的引用，而不是变量的值。可以使用立即执行函数表达式（IIFE）来解决这个问题。
+
+```js
+for (var i = 0; i < 3; i++) {
+  (function (i) {
+    console.log(i); // 输出: 2, 2, 2
+    setTimeout(function () {
+      console.log(i); // 输出: 0, 1, 2
+    }, 100);
+  })(i);
+}
+for (let j = 0; j < 3; j++) {
+  setTimeout(function () {
+    console.log(j); // 输出: 0, 1, 2
+  }, 100);
+}
+```
+
+### 七. **总结**：
+
+闭包和作用域是 JavaScript 中非常重要的概念。闭包允许函数访问其外部函数的作用域，而作用域决定了变量和函数的可访问范围。了解闭包和作用域可以帮助我们编写更高效、更易于维护的代码。

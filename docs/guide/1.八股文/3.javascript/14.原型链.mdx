@@ -1,0 +1,89 @@
+# 14.原型链
+
+### 一. **原型链**：
+
+- 每个对象都有一个原型对象，通过 `__proto__` 指针指向其原型对象，并从原型对象上继承方法和属性，
+- 这些原型对象也有自己的原型，这样就形成了一个原型链。
+- 原型链的顶端是 `Object.prototype`，它指向 `null`。
+
+```js
+function Person(name) {
+  this.name = name;
+}
+
+Person.prototype.sayName = function () {
+  console.log(this.name);
+};
+
+const person1 = new Person('Alice');
+const person2 = new Person('Bob');
+
+console.log(person1.__proto__ === Person.prototype); // true
+console.log(person2.__proto__ === Person.prototype); // true
+
+console.log(Person.prototype.__proto__ === Object.prototype); // true
+console.log(Object.prototype.__proto__ === null); // true
+```
+
+### 二. **原型链的作用**：
+
+- 原型链的作用是实现继承，使得一个对象可以访问另一个对象的属性和方法。
+- 原型链还可以实现方法的共享，避免每个对象都创建相同的方法，节省内存空间。
+- 原型链还可以实现动态添加属性和方法，使得对象可以在运行时动态地添加新的属性和方法。
+- 原型链还可以实现对象之间的委托，使得一个对象可以委托另一个对象来处理某些操作。
+
+```js
+const obj1 = {
+  a: 1,
+  b: 2,
+};
+const obj2 = Object.create(obj1); // 创建一个新对象，原型指向 obj1
+obj2.c = 3; // 添加属性
+console.log(obj2.a); // 1，从原型链上继承属性
+console.log(obj2.b); // 2，从原型链上继承属性
+console.log(obj2.c); // 3，自己的属性
+```
+
+### 三. **原型链的查找顺序**：
+
+- 当访问一个对象的属性或方法时，JavaScript 引擎会先在对象本身查找，如果找不到，就会沿着原型链向上查找，直到找到该属性或方法，或者到达原型链的顶端 `Object.prototype`。
+- 如果在整个原型链上都找不到该属性或方法，就会返回 `undefined`。
+
+```js
+const obj = {
+  x: 10,
+};
+const proto = {
+  y: 20,
+};
+Object.setPrototypeOf(obj, proto); // 设置 obj 的原型为 proto
+
+console.log(obj.x); // 10，obj 本身的属性
+console.log(obj.y); // 20，从原型链上继承的属性
+console.log(obj.z); // undefined，找不到 z 属性
+```
+
+### 四. **原型三角关系**：
+
+- 每个函数都有一个 `prototype` 属性，指向该函数的原型对象。
+- 每个对象都有一个 `__proto__` 属性，指向该对象的原型对象。
+- 当使用 `new` 关键字创建一个对象时，该对象的 `__proto__` 属性会指向该函数的 `prototype` 属性。
+
+```js
+function Animal(type) {
+  this.type = type;
+}
+Animal.prototype.sayType = function () {
+  console.log(this.type);
+};
+const dog = new Animal('Dog');
+console.log(dog.__proto__ === Animal.prototype); // true
+console.log(Animal.prototype.__proto__ === Object.prototype); // true
+```
+
+### 五. **原型链缺点**：
+
+1. **性能问题**：原型链查找属性和方法时需要沿着链向上查找，可能会导致性能问题，尤其是当原型链很长时。
+2. **调试困难**：原型链可能使代码调试变得困难，因为属性和方法的来源不再是显而易见的。
+3. **继承问题**：原型链继承可能会导致一些问题，例如，子类修改父类的属性会影响所有实例。
+4. **循环引用**：如果不小心创建了循环引用的原型链，可能会导致无限循环，最终导致栈溢出错误。

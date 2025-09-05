@@ -1,0 +1,9 @@
+# 10.JavaScript中为什么会有BigInt
+
+> Js中的数采用双精度浮点数表示，能表示的整数范围是-2^53~2^53之间的整数，超过这个范围就会出现精度丢失的问题。为了解决这个问题引入了BigInt类型，可以表示任意大小的整数。
+
+```js
+console.log(Number.MAX_SAFE_INTEGER); // 9007199254740991
+console.log(Number.MAX_SAFE_INTEGER + 1); // 9007199254740992
+console.log(Number.MAX_SAFE_INTEGER + 2); // 9007199254740992 (错误)
+```
